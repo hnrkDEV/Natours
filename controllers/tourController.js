@@ -52,13 +52,13 @@ exports.getTour = async (req, res) => {
       message: err
     })
   }
-
-
 };
 
 const catchAsync = fn => {
-  fn(req, res, next).catch(err => next(err));
-}
+  return (req, res, next) => {
+    fn(req, res, next).catch(err => next(err));
+  };
+};
 
 exports.createTour = catchAsync(async (req, res, next) => {
     const newTour = await Tour.create(req.body);
