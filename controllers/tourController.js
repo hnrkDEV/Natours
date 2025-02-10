@@ -9,7 +9,6 @@ exports.aliasTopTours = (req, res, next) => {
 };
 
 exports.getAllTours = async (req, res) => {
-
   try{
     // EXECUTE QUERY
     const features  = new APIFeatures(Tour.find(), req.query)
@@ -38,7 +37,6 @@ exports.getAllTours = async (req, res) => {
 };
 
 exports.getTour = async (req, res) => {
-
   try{
       const tour = await Tour.findById(req.params.id)
       res.status(200).json({
@@ -58,8 +56,11 @@ exports.getTour = async (req, res) => {
 
 };
 
-exports.createTour = async (req, res) => {
-  try {
+const catchAsync = fn => {
+  fn(req, res, next).catch(err => next(err));
+}
+
+exports.createTour = catchAsync(async (req, res, next) => {
     const newTour = await Tour.create(req.body);
     
     res.status(201).json({
@@ -68,14 +69,7 @@ exports.createTour = async (req, res) => {
         tour: newTour,
       }
     });
-  }
-  catch(err) {
-    res.status(400).json({
-      status: 'fail',
-      message: 'Invalid data sent!'
-    });
-  };
-};
+});
 
 exports.updateTour = async (req, res) => {
   try {
