@@ -99,6 +99,7 @@ const tourSchema =  new mongoose.Schema({
 
   tourSchema.post(/^find/, function(docs, next) {
   console.log(`Query took ${Date.now() - this.start} milliseconds!`);
+  next();
   });
 
   // AGGREGATION MIDDLEWARE
