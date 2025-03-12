@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const Tour = require('../../models/tourModel')
 const path = require("path");
 
-const filePath = path.join(__dirname, "tours-simple.json");
+const filePath = path.join(__dirname, "tours.json");
 
 dotenv.config({ path: './config.env' });
 
