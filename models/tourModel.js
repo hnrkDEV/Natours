@@ -115,11 +115,11 @@ const tourSchema =  new mongoose.Schema({
     next();
   });
 
-  tourSchema.pre('save', async function(next) {
+/*   tourSchema.pre('save', async function(next) {
     const guidesPromises = this.guides.map(async id => User.findById(id));
     this.guides = await Promise.all(guidesPromises)
     next()
-  });
+  }); */ // EMBEDDING THE GUIDES INTO THE TOURS DB
 
   //  QUERY MIDDLEWARE
   tourSchema.pre(/^find/, function(next) {
