@@ -11,38 +11,9 @@ exports.aliasTopTours = (req, res, next) => {
   next();
 };
 
-exports.getAllTours = catchAsync(async (req, res, next) => {
-    const features = new APIFeatures(Tour.find(), req.query)
-      .filter()
-      .sort()
-      .limitFields()
-      .paginate();
-      
-    const tours = await features.query;
-/* 
-    if (tours.length === 0) {
-      return next(new AppError('No tours found!', 404));
-    }
-     */
-    res.status(200).json({
-      status: 'success',
-      results: tours.length,
-      data: { tours }
-    });
-});
+exports.getAllTours = factory.getAll(Tour);
 
-exports.getTour = catchAsync(async (req, res, next) => {
-      const tour = await Tour.findById(req.params.id).populate('reviews');
-
-      if (tour.length === 0) {
-        return next(new AppError('No tour found with that ID', 404));
-      }
-
-      res.status(200).json({
-        status: 'success',
-        data: { tour }
-      });
-});
+exports.getTour = factory.getOne(Tour, { path: 'reviews' });
 
 exports.createTour = factory.createOne(Tour);
 
