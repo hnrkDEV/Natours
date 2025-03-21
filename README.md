@@ -60,10 +60,6 @@ O servidor será iniciado em `http://localhost:3000`
 ## 🛠 Testes e Documentação
 Para testar a API, recomenda-se utilizar **Postman** ou **Insomnia**. Se desejar adicionar documentação da API, pode-se integrar com **Swagger**.
 
-## 🔗 Deploy
-O projeto está disponível em produção via Vercel:
-👉 [Natours Copy Project - Live](https://natours-copy-project.vercel.app/)
-
 ## 📞 Contato
 📧 Email: jhenrique.caval@hotmail.com  
 🔗 LinkedIn: [João Henrique](https://www.linkedin.com/in/joao-hrnk/)  
