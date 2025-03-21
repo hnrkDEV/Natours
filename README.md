@@ -25,7 +25,7 @@ NatoursCopyProject/
 ├── models/           # Modelos de banco de dados
 ├── public/           # Arquivos estáticos (CSS, imagens, scripts)
 ├── routes/           # Definição das rotas
-├── views/            # Templates Pug
+├── utils/            # Funcionalidades externas
 ├── app.js            # Arquivo principal da aplicação
 └── server.js         # Configuração do servidor
 ```
