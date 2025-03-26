@@ -57,6 +57,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  res.setHeader(
+    'Content-Security-Policy',
+    "script-src 'self' https://unpkg.com blob:; worker-src 'self' blob:;",
+  );
+  next();
+});
+
 // 3- ROUTES
 app.use('', viewRouter);
 app.use('/api/v1/tours', tourRouter);
