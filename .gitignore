@@ -7,7 +7,9 @@ bundle.js.map
 
 # Ignora pastas de build/output
 dist/
+.cache/
 .parcel-cache/
+
 
 # Ignora variáveis de ambiente
 .env
