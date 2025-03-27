@@ -1,8 +1,22 @@
-node_modules
+# Ignora dependências
+node_modules/
 
+# Ignora arquivos gerados pelo bundle
 bundle.js
 bundle.js.map
 
+# Ignora pastas de build/output
 dist/
 .parcel-cache/
+
+# Ignora variáveis de ambiente
 .env
+
+# SUGESTÕES EXTRAS (opcional)
+.DS_Store          # se estiver usando Mac
+*.log              # arquivos de log
+*.local            # config locais
+
+# Ignora arquivos do editor (VSCode, etc.)
+.vscode/
+.idea/
