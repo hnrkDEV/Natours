@@ -1,6 +1,7 @@
 import '@babel/polyfill';
 import { displayMap  } from './maplibre';
-import { login } from './login';
+import { login , logout } from './login';
+
 
 // DOM ELEMENTS
 
@@ -25,5 +26,11 @@ if (form) {
       
         login(email, password);
       });
-}
+};
+
+const logoutBtn = document.querySelector('.nav__el--logout');
+
+if(logoutBtn) {
+    logoutBtn.addEventListener('click', logout);
+} 
 
