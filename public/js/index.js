@@ -1,7 +1,7 @@
 import '@babel/polyfill';
 import { displayMap  } from './maplibre';
 import { login , logout } from './login';
-import { updateData } from './updateSettings';
+import { updateSettings } from './updateSettings';
 
 
 // DOM ELEMENTS
@@ -43,10 +43,37 @@ if (accountForm) {
     accountForm.addEventListener('submit', e => {
         e.preventDefault();
         console.log('formulário submetido');
-      
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-      
-        updateData(name, email);
+
+        const data = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value
+        }
+        const type = 'User'
+        updateSettings(data, type);
+      });
+};
+
+const userPasswordForm = document.querySelector('.form-user-settings')
+
+if (userPasswordForm) {
+    userPasswordForm.addEventListener('submit',async e => {
+        e.preventDefault();
+        console.log('formulário submetido');
+
+        document.querySelector('.btn--save-password').textContent = 'Updating...'
+
+        const data = {
+            passwordCurrent: document.getElementById('password-current').value,
+            password: document.getElementById('password').value,
+            passwordConfirm: document.getElementById('password-confirm').value
+        }
+        const type = 'Password'
+        await updateSettings(data, type);
+
+        document.querySelector('.btn--save-password').textContent = 'Save Password'
+        document.getElementById('password-current').value = ''
+        document.getElementById('password').value = ''
+        document.getElementById('password-confirm').value = ''
+
       });
 };
