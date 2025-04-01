@@ -42,14 +42,14 @@ const accountForm = document.querySelector('.form-user-data');
 if (accountForm) {
     accountForm.addEventListener('submit', e => {
         e.preventDefault();
-        console.log('formulário submetido');
-
-        const data = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value
-        }
+        const form = new FormData();
+        form.append('name', document.getElementById('name').value);
+        form.append('email', document.getElementById('email').value);
+        form.append('photo', document.getElementById('photo').files[0]);
+        
         const type = 'User'
-        updateSettings(data, type);
+
+        updateSettings(form, type);
       });
 };
 
@@ -74,6 +74,5 @@ if (userPasswordForm) {
         document.getElementById('password-current').value = ''
         document.getElementById('password').value = ''
         document.getElementById('password-confirm').value = ''
-
       });
 };
