@@ -1,10 +1,6 @@
 # Ignora dependências
 node_modules/
 
-# Ignora arquivos gerados pelo bundle
-bundle.js
-bundle.js.map
-
 # Ignora pastas de build/output
 dist/
 .cache/
