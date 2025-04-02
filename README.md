@@ -1,67 +1,123 @@
-# Natours
+# Natours API – API de Turismo com Autenticação, Mapas e Checkout
 
-Este projeto é uma réplica do **Natours**, um site de turismo, desenvolvido para praticar e demonstrar habilidades em desenvolvimento web.
+Este é um projeto completo de uma aplicação Node.js/Express para gerenciamento de tours turísticos, com autenticação de usuários, sistema de reservas com Stripe, mapas interativos com MapLibre, envio de e-mails e painel com templates Pug.
 
-## 🚀 Tecnologias Utilizadas
+---
 
-- **Frontend**: HTML, CSS, Pug
-- **Backend**: Node.js, Express
-- **Banco de Dados**: MongoDB (Mongoose)
-- **Autenticação**: JSON Web Token (JWT)
+## 🚀 Funcionalidades
 
-## 📌 Funcionalidades
+- 🔐 Autenticação com JWT (login, cadastro, proteção de rotas)
+- 📩 Envio de e-mails com reset de senha
+- 📍 Mapas interativos usando MapLibre
+- 🧾 Checkout de pagamento com Stripe
+- 👤 Painel do usuário com upload de foto
+- ✍️ Reviews dos tours
+- 📦 Importação de dados mock
+- 🎨 Front-end com templates em Pug + CSS customizado
 
-✅ Cadastro e login de usuários
-✅ Gerenciamento de tours
-✅ Sistema de autenticação JWT
-✅ Conexão com MongoDB para persistência de dados
-✅ Interface dinâmica e responsiva
+---
 
-## 📂 Estrutura do Projeto
+## 📁 Estrutura de Pastas
 
 ```
-NatoursCopyProject/
-├── controllers/      # Controladores da aplicação
-├── models/           # Modelos de banco de dados
-├── public/           # Arquivos estáticos (CSS, imagens, scripts)
-├── routes/           # Definição das rotas
-├── utils/            # Funcionalidades externas
-├── app.js            # Arquivo principal da aplicação
-└── server.js         # Configuração do servidor
+.
+├── controllers       # Lógica de cada funcionalidade da aplicação
+├── dev-data          # Dados mock para importação
+├── models            # Modelos do Mongoose
+├── public            # Arquivos estáticos (CSS, imagens, JS do front-end)
+├── routes            # Rotas da API e páginas
+├── utils             # Funções utilitárias (erros, e-mail, async)
+├── views             # Templates Pug
+├── app.js            # Configuração principal da aplicação
+├── server.js         # Arquivo de entrada do servidor
+├── config.env        # Variáveis de ambiente
 ```
 
-## 🛠 Como Executar o Projeto Localmente
+---
 
-### 1️⃣ Clonar o Repositório
+## 🛠️ Tecnologias Utilizadas
+
+- Node.js
+- Express
+- MongoDB + Mongoose
+- Pug
+- MapLibre GL JS
+- Stripe API
+- Nodemailer
+- Axios
+- Babel
+- ESLint + Prettier
+
+---
+
+## 📦 Instalação
+
 ```bash
-git clone https://github.com/hnrkDEV/NatoursCopyProject.git
-cd NatoursCopyProject
-```
+# Clone o repositório
+git clone https://github.com/seu-usuario/natours.git
 
-### 2️⃣ Instalar as Dependências
-```bash
+# Instale as dependências
 npm install
+
+# Crie um arquivo .env
+cp config.env.example config.env
 ```
 
-### 3️⃣ Configurar Variáveis de Ambiente
-Crie um arquivo **.env** na raiz do projeto e adicione suas configurações:
-```
-PORT=3000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-```
+---
 
-### 4️⃣ Executar a Aplicação
+## 📌 Scripts
+
 ```bash
-npm start
+npm run start           # Inicia o servidor em modo produção
+npm run dev             # Inicia o servidor com Nodemon + Babel (dev)
+npm run lint            # Executa o ESLint
+npm run prettier        # Formata os arquivos com Prettier
 ```
-O servidor será iniciado em `http://localhost:3000`
 
-## 🛠 Testes e Documentação
-Para testar a API, recomenda-se utilizar **Postman** ou **Insomnia**. Se desejar adicionar documentação da API, pode-se integrar com **Swagger**.
+---
 
-## 📞 Contato
-📧 Email: jhenrique.caval@hotmail.com  
-🔗 LinkedIn: [João Henrique](https://www.linkedin.com/in/joao-hrnk/)  
-🔗 GitHub: [hnrkDEV](https://github.com/hnrkDEV)
+## 🔐 Variáveis de Ambiente (`config.env`)
+
+```env
+PORT=8000
+DATABASE=<your_mongo_uri>
+DATABASE_PASSWORD=<your_password>
+JWT_SECRET=<your_jwt_secret>
+JWT_EXPIRES_IN=90d
+JWT_COOKIE_EXPIRES_IN=90
+STRIPE_SECRET_KEY=<your_stripe_secret>
+STRIPE_PUBLIC_KEY=<your_stripe_public>
+EMAIL_USERNAME=<your_email>
+EMAIL_PASSWORD=<your_pass>
+EMAIL_HOST=smtp.example.com
+EMAIL_PORT=587
+NODE_ENV=development
+```
+
+---
+
+## 🧪 Importar Dados de Desenvolvimento
+
+```bash
+node dev-data/data/import-dev-data.js --import
+# ou
+node dev-data/data/import-dev-data.js --delete
+```
+
+---
+
+## 🖼️ Telas
+
+- Página de login e cadastro
+- Página de tours com mapa
+- Detalhes do tour
+- Checkout com Stripe
+- Painel do usuário
+- Reviews e guias turísticos
+
+---
+
+## 📄 Licença
+
+MIT © João Henrique
 
